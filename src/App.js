@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route } from "wouter";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import PodcastDetailPage from "./pages/PodcastDetail";
+import Episode from "./pages/Episode";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Route component={Home} path="/" />
+      <Route component={PodcastDetailPage} path="/podcast/:id" />
+      <Route component={Episode} path="/podcast/:id/episode/:episodeId" />
     </div>
   );
 }
