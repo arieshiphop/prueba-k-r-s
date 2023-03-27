@@ -36,13 +36,9 @@ const StyledTable = styled.table`
 
 function PodcastDetailPage({ params }) {
   const [podcastInfo, setPodcastInfo] = useState(null);
-  console.log("ID", params.id);
   useEffect(() => {
     getPodcastDetail(params.id, setPodcastInfo);
   }, []);
-  const handleClick = () => {
-    console.log("click");
-  };
 
   return (
     <StyledContainer>
@@ -63,7 +59,6 @@ function PodcastDetailPage({ params }) {
                   <td>
                     <Link
                       href={`/podcast/${params.id}/episode/${podcast.trackId}`}
-                      onClick={handleClick}
                     >
                       {podcast.trackName}
                     </Link>
